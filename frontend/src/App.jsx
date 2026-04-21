@@ -1,10 +1,16 @@
-import React from 'react'
+import { Toaster } from "react-hot-toast"
+import { Route, Routes } from "react-router-dom"
+import LoginLanding from "./pages/LoginLanding"
+
 
 const App = () => {
   return (
-    <div>
-      App
-    </div>
+    <>
+      <Toaster />
+      <Routes>
+        <Route path="/login" element={<LoginLanding />}/>
+      </Routes>
+    </>
   )
 }
 
