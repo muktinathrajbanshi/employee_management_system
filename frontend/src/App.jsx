@@ -1,5 +1,5 @@
 import { Toaster } from "react-hot-toast"
-import { Route, Routes } from "react-router-dom"
+import { Navigate, Route, Routes } from "react-router-dom"
 import LoginLanding from "./pages/LoginLanding"
 import Layout from "./pages/Layout"
 import Dashboard from "./pages/Dashboard"
@@ -17,15 +17,17 @@ const App = () => {
       <Toaster />
       <Routes>
         <Route path="/login" element={<LoginLanding />}/>
-        <Route element={<Layout />}/>
-         <Route path="/dashboard" element={<Dashboard />} />
-         <Route path="/employees" element={<Employees />} />
-         <Route path="/attendance" element={<Attendance />} />
-         <Route path="/leave" element={<Leave />} />
-         <Route path="/payslips" element={<Payslips />} />
-         <Route path="/settings" element={<Settings />} />
+          <Route element={<Layout />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/employees" element={<Employees />} />
+              <Route path="/attendance" element={<Attendance />} />
+              <Route path="/leave" element={<Leave />} />
+              <Route path="/payslips" element={<Payslips />} />
+              <Route path="/settings" element={<Settings />} />
+          </Route>
         <Route path="/print/payslips/:id" element={<PrintPayslip />}/>
 
+        <Route path="*" element={<Navigate to="/dashboard" replace />} />
 
       </Routes>
     </>
