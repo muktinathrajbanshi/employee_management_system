@@ -5,6 +5,7 @@ import Layout from "./pages/Layout"
 import Dashboard from "./pages/Dashboard"
 import Employees from "./pages/Employees"
 import Attendance from "./pages/Attendance"
+import Leave from "./pages/Leave"
 
 
 const App = () => {
@@ -17,7 +18,7 @@ const App = () => {
          <Route path="/dashboard" element={<Dashboard />} />
          <Route path="/employees" element={<Employees />} />
          <Route path="/attendance" element={<Attendance />} />
-         <Route path="/leave" element={<Dashboard />} />
+         <Route path="/leave" element={<Leave />} />
          <Route path="/payslips" element={<Dashboard />} />
          <Route path="/settings" element={<Dashboard />} />
 
