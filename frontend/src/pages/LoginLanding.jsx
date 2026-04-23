@@ -1,6 +1,23 @@
+import { ShieldIcon } from "lucide-react"
 import LoginLeftSide from "../components/LoginLeftSide"
 
 const LoginLanding = () => {
+
+  const portalOptions = [
+    {
+      to: "/login/admin",
+      title: "Admin Portal",
+      description: "Manage employees, departments, payroll, and system configurations.",
+      icon: ShieldIcon
+    },
+    {
+      to: "/login/employee",
+      title: "Employee Portal",
+      description: "View your profile, track attendance, request time off, and access payslips.",
+      icon: ShieldIcon
+    }
+  ]
+
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
       <LoginLeftSide />
