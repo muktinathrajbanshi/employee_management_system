@@ -1,5 +1,6 @@
-import { ShieldIcon } from "lucide-react"
+import { ShieldIcon, UserIcon } from "lucide-react"
 import LoginLeftSide from "../components/LoginLeftSide"
+import { Link } from "react-router-dom"
 
 const LoginLanding = () => {
 
@@ -14,7 +15,7 @@ const LoginLanding = () => {
       to: "/login/employee",
       title: "Employee Portal",
       description: "View your profile, track attendance, request time off, and access payslips.",
-      icon: ShieldIcon
+      icon: UserIcon
     }
   ]
 
@@ -34,6 +35,16 @@ const LoginLanding = () => {
         </div>
 
         {/* Portal List  */}
+
+        <div className="space-y-4">
+          {portalOptions.map((portal) => {
+            <Link key={portal.to} to={portal.to} className="group block bg-slate-50 border
+            border-slate-200 rounded-lg p-5 sm:p-6 transition-all duration-300
+            hover:border-indigo-400 hover:bg-indigo-50">
+
+            </Link>
+          })}
+        </div>
 
         { /* Footer */ }
 
