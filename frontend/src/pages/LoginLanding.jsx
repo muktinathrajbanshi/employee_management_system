@@ -1,4 +1,4 @@
-import { ShieldIcon, UserIcon } from "lucide-react"
+import { ArrowRightIcon, ShieldIcon, UserIcon } from "lucide-react"
 import LoginLeftSide from "../components/LoginLeftSide"
 import { Link } from "react-router-dom"
 
@@ -41,7 +41,13 @@ const LoginLanding = () => {
             <Link key={portal.to} to={portal.to} className="group block bg-slate-50 border
             border-slate-200 rounded-lg p-5 sm:p-6 transition-all duration-300
             hover:border-indigo-400 hover:bg-indigo-50">
-
+              <div>
+                <h3 className="text-lg text-slate-800
+                group-hover:text-indigo-600 mb-1
+                transition-colors">{portal.title}</h3>
+                <ArrowRightIcon className="w-4 h-4 text-slate-400 group-hover:text-indigo-600
+                group-hover:translate-x-1 transition-all duration-300" />
+              </div>
             </Link>
           })}
         </div>
