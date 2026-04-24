@@ -21,10 +21,16 @@ const Sidebar = () => {
   return (
     <>
       {/* Mobile hamburger button  */}
-      <button className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-slate-900 text-white rounded-lg
+      <button onClick={() => setMobileOpen(true)} className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-slate-900 text-white rounded-lg
       shadow-lg border border-white/10">
         <MenuIcon size={20} />
       </button>
+
+      {/* Mobile overlay */}
+      {mobileOpen && <div className="lg:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
+      onClick={() => setMobileOpen(false)} />}
+
+      {/* Sidebar - desktop  */}
     </>
   )
 }
