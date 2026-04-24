@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import LoginLeftSide from "./LoginLeftSide"
-import { ArrowLeftIcon, EyeIcon, EyeOffIcon } from "lucide-react"
+import { ArrowLeftIcon, EyeIcon, EyeOffIcon, Loader2Icon } from "lucide-react"
 import { useState } from "react"
 
 const LoginForm = ({role, title, subtitle}) => {
@@ -56,7 +56,6 @@ const LoginForm = ({role, title, subtitle}) => {
                 <div className="relative">
                   <input 
                   type={showPassword ? "text" : "password"}
-                  value={email} 
                   onChange={(e) => {setPassword(e.target.value)}} 
                   required
                   className="pr-11"
@@ -64,11 +63,23 @@ const LoginForm = ({role, title, subtitle}) => {
                   <button type="button" className="absolute right-3 top-1/2 -translate-y-1/2
                   text-slate-400 hover:text-slate-600 transition-colors" onClick={() => setShowPassword(!showPassword)}>
                     {showPassword 
-                    ? <EyeOffIcon size={18} />
-                    : <EyeIcon size={18} />}
+                    ? <EyeIcon size={18} />
+                    : <EyeOffIcon size={18} />}
                   </button>
                 </div>
               </div>
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full py-3 bg-linear-to-r from-indigo-600 to-indigo-500 text-white
+                rounded-md text-sm font-semibold hover:from-indigo-700 hover:to-indigo-600 
+                disabled:opacity-50 transition-all duration-200 shadow-lg shadow-indigo-500/25
+                active:scale-[0.98] flex items-center justify-center">
+                {loading && <Loader2Icon
+                className="animate-spin h-4 w-4 mr-2" />}
+                Sign in
+              </button>
             </from>
 
          </div>
