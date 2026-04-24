@@ -20,7 +20,21 @@ const Sidebar = () => {
 
     const sidebarContent = (
         <>
+            {/* Brand header  */}
+            <div className="px-5 pt-6 pb-5 border-b border-white/6">
 
+            </div>
+
+            {/* User profile card  */}
+
+
+            {/* Section label  */}
+
+
+            {/* Navigation List  */}
+
+
+            {/* Logout  */}
         </>
     )
 
@@ -46,7 +60,8 @@ const Sidebar = () => {
         {/* Sidebar - mobile  */}
         <aside className={`lg:hidden fixed inset-y-0 left-0 w-72
         bg-linear-to-b from-slate-900 via-slate-900 to-slate-950 text-white
-        z-50 flex flex-col transform transition-transform duration-300`}>
+        z-50 flex flex-col transform transition-transform duration-300
+        {mobileOpen ? "translate-x-0" : "-translate-x-full"}`}>
             {sidebarContent}
         </aside>
 
