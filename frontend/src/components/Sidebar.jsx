@@ -26,6 +26,10 @@ const Sidebar = () => {
                     <div className="flex items-center gap-3">
                         <UserIcon className="text-white size-7" />
                     </div>
+                    <div>
+                        <p className="font-semibold text-[13px] text-white tracking-wide">Employee MS</p>
+                        <p className="text-[11px] text-slate-500 font-medium">Management System</p>
+                    </div>
                 </div>
             </div>
 
