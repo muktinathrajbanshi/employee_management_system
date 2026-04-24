@@ -18,6 +18,12 @@ const Sidebar = () => {
        setMobileOpen(false)
     }, [pathname])
 
+    const sidebarContent = (
+        <>
+
+        </>
+    )
+
   return (
     <>
       {/* Mobile hamburger button  */}
@@ -31,6 +37,19 @@ const Sidebar = () => {
       onClick={() => setMobileOpen(false)} />}
 
       {/* Sidebar - desktop  */}
+        <aside className="hidden lg:flex flex-col h-full w-[260px]
+        bg-linear-to-b from-slate-900 via-slate-900 to-slate-950 text-white
+        shrink-0 border-r border-white/4">
+            {sidebarContent}
+        </aside>
+
+        {/* Sidebar - mobile  */}
+        <aside className={`lg:hidden fixed inset-y-0 left-0 w-72
+        bg-linear-to-b from-slate-900 via-slate-900 to-slate-950 text-white
+        z-50 flex flex-col transform transition-transform duration-300`}>
+            {sidebarContent}
+        </aside>
+
     </>
   )
 }
