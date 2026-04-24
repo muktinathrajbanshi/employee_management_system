@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import LoginLeftSide from "./LoginLeftSide"
-import { ArrowLeftIcon } from "lucide-react"
+import { ArrowLeftIcon, EyeIcon, EyeOffIcon } from "lucide-react"
+import { useState } from "react"
 
 const LoginForm = ({role, title, subtitle}) => {
 
@@ -43,9 +44,30 @@ const LoginForm = ({role, title, subtitle}) => {
             <from className="space-y-5" onSubmit={handleSubmit}>
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2">Email address</label>
-                <input type="email" value={email} onChange={(e) => {
-                  setEmail(e.target.value)
-                }} />
+                <input 
+                type="email" 
+                value={email} 
+                onChange={(e) => {setEmail(e.target.value)}} 
+                required
+                placeholder="ram@example.com"/>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">Password</label>
+                <div className="relative">
+                  <input 
+                  type={showPassword ? "text" : "password"}
+                  value={email} 
+                  onChange={(e) => {setPassword(e.target.value)}} 
+                  required
+                  className="pr-11"
+                  placeholder="......."/>
+                  <button type="button" className="absolute right-3 top-1/2 -translate-y-1/2
+                  text-slate-400 hover:text-slate-600 transition-colors" onClick={() => setShowPassword(!showPassword)}>
+                    {showPassword 
+                    ? <EyeOffIcon size={18} />
+                    : <EyeIcon size={18} />}
+                  </button>
+                </div>
               </div>
             </from>
 
