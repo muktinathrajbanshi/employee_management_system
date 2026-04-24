@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"
 import { dummyProfileData } from "../assets/assets"
-import { MenuIcon } from "lucide-react"
+import { MenuIcon, UserIcon } from "lucide-react"
 
 const Sidebar = () => {
 
@@ -22,7 +22,11 @@ const Sidebar = () => {
         <>
             {/* Brand header  */}
             <div className="px-5 pt-6 pb-5 border-b border-white/6">
-
+                <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                        <UserIcon className="text-white size-7" />
+                    </div>
+                </div>
             </div>
 
             {/* User profile card  */}
