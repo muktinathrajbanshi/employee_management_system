@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { dummyProfileData } from "../assets/assets"
-import { CalendarIcon, ChevronRightIcon, DollarSignIcon, FileTextIcon, LayoutGridIcon, MenuIcon, SettingsIcon, UserIcon, XIcon } from "lucide-react"
+import { CalendarIcon, ChevronRightIcon, DollarSignIcon, FileTextIcon, LayoutGridIcon, LogOut, LogOutIcon, MenuIcon, SettingsIcon, UserIcon, XIcon } from "lucide-react"
 
 const Sidebar = () => {
 
@@ -106,6 +106,14 @@ const Sidebar = () => {
 
 
             {/* Logout  */}
+            <div className="p-3 border-t border-white/6">
+                <button className="flex items-center gap-3 w-full px-3 py-2.5
+                rounded-md text-[13px] font-medium text-slate-400
+                hover:text-rose-400 hover:bg-rose-500/8 transition-all duration-500">
+                    <LogOutIcon className="w-[17px] h-[17px]" />
+                    <span>Log out</span>
+                </button>
+            </div>
         </>
     )
 
