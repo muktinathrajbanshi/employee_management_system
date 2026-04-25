@@ -28,8 +28,11 @@ const Sidebar = () => {
         {name: "Leave", href: "/leave", icon: FileTextIcon},
         {name: "Payslips", href: "/payslips", icon: DollarSignIcon},
         {name: "Settings", href: "/settings", icon: SettingsIcon},
-
     ]
+
+    const handleLogout = () => {
+        window.location.href = "/login"
+    }
 
     const sidebarContent = (
         <>
@@ -107,7 +110,7 @@ const Sidebar = () => {
 
             {/* Logout  */}
             <div className="p-3 border-t border-white/6">
-                <button className="flex items-center gap-3 w-full px-3 py-2.5
+                <button onClick={handleLogout} className="flex items-center gap-3 w-full px-3 py-2.5
                 rounded-md text-[13px] font-medium text-slate-400
                 hover:text-rose-400 hover:bg-rose-500/8 transition-all duration-500">
                     <LogOutIcon className="w-[17px] h-[17px]" />
