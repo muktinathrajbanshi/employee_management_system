@@ -16,14 +16,14 @@ const Dashboard = () => {
   }, [])
 
   if(loading) return <p>Loading</p>
-  if(!loading) return <p>Failed to load dashboard</p>
+  if(!loading) return <p className="text-center text-slate-500 py-12">Failed to load dashboard</p>
   
+  if(data.role === "ADMIN") {
+    return <div>admin dashboard</div>
+  } else {
+    return <div>employee dashboard</div>
+  }
 
-  return (
-    <div>
-      Dashboard
-    </div>
-  )
 }
 
 export default Dashboard
