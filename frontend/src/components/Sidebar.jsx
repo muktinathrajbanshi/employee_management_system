@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { dummyProfileData } from "../assets/assets"
-import { CalendarIcon, DollarSignIcon, FileTextIcon, LayoutGridIcon, MenuIcon, SettingsIcon, UserIcon, XIcon } from "lucide-react"
+import { CalendarIcon, ChevronRightIcon, DollarSignIcon, FileTextIcon, LayoutGridIcon, MenuIcon, SettingsIcon, UserIcon, XIcon } from "lucide-react"
 
 const Sidebar = () => {
 
@@ -91,6 +91,9 @@ const Sidebar = () => {
                             bg-indigo-500" />}
                             <item.icon className={`w-[17px] h-[17px] shrink-0 ${isActive 
                             ? "text-indigo-300" : "text-slate-400 group-hover:text-slate-300"}`} />
+                            <span className="flex-1">{item.name}</span>
+                            {isActive && <ChevronRightIcon className="w-3.5 h-3.5 
+                            text-indigo-500/50" />}
                         </Link>
                     )
                 })}
