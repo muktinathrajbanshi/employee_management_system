@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { dummyProfileData } from "../assets/assets"
 import { CalendarIcon, DollarSignIcon, FileTextIcon, LayoutGridIcon, MenuIcon, SettingsIcon, UserIcon, XIcon } from "lucide-react"
 
@@ -22,7 +22,8 @@ const Sidebar = () => {
 
     const navItems = [
         {name: "Dashboard", href: "/dashboard", icon: LayoutGridIcon},
-        {name: "Employees", href: "/employees", icon: UserIcon},
+        role === "ADMIN" ?
+        {name: "Employees", href: "/employees", icon: UserIcon} : 
         {name: "Attendance", href: "/attendance", icon: CalendarIcon},
         {name: "Leave", href: "/leave", icon: FileTextIcon},
         {name: "Payslips", href: "/payslips", icon: DollarSignIcon},
@@ -80,6 +81,20 @@ const Sidebar = () => {
 
 
             {/* Navigation List  */}
+            <div className="flex-1 px-3 space-y-0.5 overflow-y-auto">
+                {navItems.map((item) => {
+                    const isActive = pathname.startsWith(item.href)
+                    return (
+                        <Link>
+                            {isActive && <div className="absolute left-0 top-1/2
+                            -translate-y-1/2 w-[3px] h-5 rounded-r-full
+                            bg-indigo-500" />}
+                            <item.icon className={`w-[17px] h-[17px] shrink-0 ${isActive 
+                            ? "text-indigo-300" : "text-slate-400 group-hover:text-slate-300"}`} />
+                        </Link>
+                    )
+                })}
+            </div>
 
 
             {/* Logout  */}
