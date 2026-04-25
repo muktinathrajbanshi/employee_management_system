@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { dummyEmployeeDashboardData } from "../assets/assets"
+import Loading from "../components/Loading"
 
 const Dashboard = () => {
 
@@ -15,8 +16,8 @@ const Dashboard = () => {
 
   }, [])
 
-  if(loading) return <p>Loading</p>
-  if(!loading) return <p className="text-center text-slate-500 py-12">Failed to load dashboard</p>
+  if(loading) return <Loading />
+  if(!data) return <p className="text-center text-slate-500 py-12">Failed to load dashboard</p>
   
   if(data.role === "ADMIN") {
     return <div>admin dashboard</div>
