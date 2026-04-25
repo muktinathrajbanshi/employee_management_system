@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"
 import { dummyProfileData } from "../assets/assets"
-import { MenuIcon, UserIcon, XIcon } from "lucide-react"
+import { CalendarIcon, DollarSignIcon, FileTextIcon, LayoutGridIcon, MenuIcon, SettingsIcon, UserIcon, XIcon } from "lucide-react"
 
 const Sidebar = () => {
 
@@ -19,6 +19,16 @@ const Sidebar = () => {
     }, [pathname])
 
     const role = "" | "EMPLOYEE";
+
+    const navItems = [
+        {name: "Dashboard", href: "/dashboard", icon: LayoutGridIcon},
+        {name: "Employees", href: "/employees", icon: UserIcon},
+        {name: "Attendance", href: "/attendance", icon: CalendarIcon},
+        {name: "Leave", href: "/leave", icon: FileTextIcon},
+        {name: "Payslips", href: "/payslips", icon: DollarSignIcon},
+        {name: "Settings", href: "/settings", icon: SettingsIcon},
+
+    ]
 
     const sidebarContent = (
         <>
