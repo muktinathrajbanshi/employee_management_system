@@ -20,15 +20,20 @@ const EmployeeDashboard = ({data}) => {
             icon: DollarSignIcon,
             value: data.latestPayslip ? `$${data.latestPayslip.netSalary?.
             toLocaleString()}` : "N/A",
-            title: "Days Present",
-            subtitle: "This month",
+            title: "Latest Payslip",
+            subtitle: "Most recent payout",
         },
 
     ]
 
   return (
-    <div>
-      
+    <div className="animate-fade-in">
+      <div className="page-header">
+        <h1 className="page-title">Welcome, {emp?.firstName}!</h1>
+        <p className="page-subtitle">
+            
+        </p>
+      </div>
     </div>
   )
 }
