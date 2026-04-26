@@ -34,6 +34,10 @@ const EmployeeDashboard = ({data}) => {
             {emp?.position} - {emp?.department || "No Department"}
         </p>
       </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 mb-8">
+
+      </div>
     </div>
   )
 }
