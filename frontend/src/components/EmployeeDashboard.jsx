@@ -40,7 +40,8 @@ const EmployeeDashboard = ({data}) => {
             <div key={index} className="card card-hover p-5 sm:p-6 relative overflow-hidden
             group flex items-center justify-center">
                 <div>
-
+                    <div className="absolute left-0 top-0 bottom-0 w-1 rounded-r-full
+                    bg-slate-500/70 group-hover:bg-indigo-500/70" />
                 </div>
                 <card.icon className="size-10 p-2.5 rounded-lg bg-slate-100
                 text-slate-600 group-hover:bg-indigo-50 group-hover:text-indigo-600
