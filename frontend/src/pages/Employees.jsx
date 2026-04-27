@@ -1,11 +1,13 @@
 import { useCallback, useEffect, useState } from "react"
 import { dummyEmployeeData } from "../assets/assets"
-import { Plus } from "lucide-react"
+import { Plus, Search } from "lucide-react"
 
 const Employees = () => {
 
   const [employees, setEmployees] = useState([])
   const [loading, setLoading] = useState(true)
+  const [search, setSearch] = useState("");
+  const [selectedDept, setSelectedDept] = useState("")
 
   const fetchEmployees = useCallback(async () => {
     setLoading(true)
@@ -34,6 +36,14 @@ const Employees = () => {
       </button>
       </div>
       {/* search bar  */}
+      <div className="flex flex-col sm:flex-row gap-3 mb-6">
+        <div className="relative flex-1">
+          <Search />
+        </div>
+        <select>
+
+        </select>
+      </div>
 
       {/* employee cards  */}
 
