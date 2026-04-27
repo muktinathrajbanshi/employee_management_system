@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { dummyEmployeeData } from "../assets/assets"
 
 const Employees = () => {
@@ -14,10 +14,23 @@ const Employees = () => {
     }, 1000)
   }, [])
 
+  useEffect(() => {
+    fetchEmployees();
+  }, [])
+
 
   return (
-    <div>
-      Employees
+    <div className="animate-fade-in">
+      {/* header  */}
+      <div className="flex flex-col sm:flex-row justify-between items-start
+      sm:items-center gap-4 mb-8">
+
+      </div>
+      {/* search bar  */}
+
+      {/* employee cards  */}
+
+
     </div>
   )
 }
