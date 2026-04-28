@@ -58,6 +58,15 @@ const Employees = () => {
 
       {/* employee cards  */}
 
+      {loading ? (
+        <div>
+          <div className="animate-spin h-8 w-8 border-2 border-indigo-600
+          border-t-transparent rounded-full" />
+        </div>
+      ) : (
+        <div></div>
+      )}
+
 
     </div>
   )
