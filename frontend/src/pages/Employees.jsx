@@ -38,7 +38,10 @@ const Employees = () => {
       {/* search bar  */}
       <div className="flex flex-col sm:flex-row gap-3 mb-6">
         <div className="relative flex-1">
-          <Search />
+          <Search className="absolute left-3.5 top-1/2 transform -translate-y-1/2 text-slate-400
+          w-4 h-4" />
+          <input placeholder="Search employees..." className="w-full pl-10!" 
+          onChange={(e) => setSearch(e.target.value)} value={search} />
         </div>
         <select>
 
