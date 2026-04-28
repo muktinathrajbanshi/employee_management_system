@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react"
-import { dummyEmployeeData } from "../assets/assets"
+import { dummyEmployeeData, DEPARTMENTS } from "../assets/assets"
 import { Plus, Search } from "lucide-react"
+
 
 const Employees = () => {
 
@@ -43,8 +44,12 @@ const Employees = () => {
           <input placeholder="Search employees..." className="w-full pl-10!" 
           onChange={(e) => setSearch(e.target.value)} value={search} />
         </div>
-        <select>
-
+        <select value={selectedDept} onChange={(e) => setSelectedDept(e.target.value)} 
+        className="max-w-40">
+          <option value="">All Departments</option>
+          {DEPARTMENTS.map((deptName) => {
+            <option key={deptName} value={deptName}>{deptName}</option>
+          })}
         </select>
       </div>
 
