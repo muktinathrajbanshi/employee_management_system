@@ -22,6 +22,9 @@ const Employees = () => {
     fetchEmployees();
   }, [])
 
+  const filterd = employees.filter((emp) => `${
+  emp.firstName} ${emp.lastname}`.toLowerCase().includes(search.toLowerCase()))
+
 
   return (
     <div className="animate-fade-in">
