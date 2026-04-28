@@ -19,15 +19,14 @@ const Employees = () => {
     setEmployees(dummyEmployeeData.filter((emp) => (selectedDept ? employees.department === selectedDept : emp)))
     setTimeout(() => {
       setLoading(false)
-    }, 1000)
+    },1000)
   }, [])
 
   useEffect(() => {
     fetchEmployees();
   }, [])
 
-  const filtered = employees.filter((emp) => `${
-  emp.firstName} ${emp.lastname}`.toLowerCase().includes(search.toLowerCase()))
+  const filtered = employees.filter((emp) => `${emp.firstName} ${emp.lastName} ${emp.position}`.toLowerCase().includes(search.toLowerCase()))
 
 
   return (
