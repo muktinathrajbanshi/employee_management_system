@@ -12,7 +12,7 @@ const Employees = () => {
 
   const fetchEmployees = useCallback(async () => {
     setLoading(true)
-    setEmployees(dummyEmployeeData)
+    setEmployees(dummyEmployeeData.filter((emp) => (selectedDept ? employees.department === selectedDept : emp)))
     setTimeout(() => {
       setLoading(false)
     }, 1000)
