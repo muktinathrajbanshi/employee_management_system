@@ -11,7 +11,7 @@ const Employees = () => {
   const [search, setSearch] = useState("");
   const [selectedDept, setSelectedDept] = useState("")
   const [editEmployee, setEditEmployee] = useState(null)
-  // const [showCreateModal, setShowCreateModal] = useState(false)
+  const [showCreateModal, setShowCreateModal] = useState(false)
 
 
   const fetchEmployees = useCallback(async () => {
@@ -26,7 +26,8 @@ const Employees = () => {
     fetchEmployees();
   }, [])
 
-  const filtered = employees.filter((emp) => `${emp.firstName} ${emp.lastName} ${emp.position}`.toLowerCase().includes(search.toLowerCase()))
+  const filtered = employees.filter((emp) => `${emp.firstName} 
+  ${emp.lastName} ${emp.position}`.toLowerCase().includes(search.toLowerCase()))
 
 
   return (
