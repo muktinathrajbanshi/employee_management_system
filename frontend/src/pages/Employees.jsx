@@ -47,9 +47,9 @@ const Employees = () => {
         <select value={selectedDept} onChange={(e) => setSelectedDept(e.target.value)} 
         className="max-w-40">
           <option value="">All Departments</option>
-          {DEPARTMENTS.map((deptName) => {
+          {DEPARTMENTS.map((deptName) => (
             <option key={deptName} value={deptName}>{deptName}</option>
-          })}
+          ))}
         </select>
       </div>
 
