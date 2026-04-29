@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react"
 import { dummyEmployeeData, DEPARTMENTS } from "../assets/assets"
-import { Plus, Search } from "lucide-react"
+import { Plus, Search, X } from "lucide-react"
 import EmployeeCard from "../components/EmployeeCard"
 
 
@@ -93,11 +93,15 @@ const Employees = () => {
             <div className="flex items-center justify-between p-6 pb-0">
               <div>
                 <h2 className="text-lg font-semibold text-slate-900">Add New Employee</h2>
-                <p>Create a user account and employee profile</p>
+                <p className="text-sm text-slate-500 mt-0.5">Create a user account and employee profile</p>
               </div>
-              <button>
-                
+              <button onClick={() => setShowCreateModal(false)} className="p-2 rounded-lg hover:bg-slate-100 transition-colors text-slate-400
+              hover:text-slate-600">
+                <X className="w-5 h-5" />
               </button>
+            </div>
+            <div>
+              
             </div>
           </div>
         </div>
