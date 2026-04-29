@@ -124,7 +124,9 @@ const Employees = () => {
                 <X className="w-5 h-5" />
               </button>
             </div>
-            
+            <div className="p-6">
+              form
+            </div>
           </div> 
         </div>
       )}
