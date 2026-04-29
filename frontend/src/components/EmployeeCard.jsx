@@ -1,3 +1,4 @@
+import { PencilIcon, Trash2Icon } from "lucide-react"
 
 const EmployeeCard = ({employee, onDelete, onEdit}) => {
   return (
@@ -24,6 +25,21 @@ const EmployeeCard = ({employee, onDelete, onEdit}) => {
         {employee.isDeleted && <span className="bg-red-500/60
         font-medium text-white px-2.5 py-1 text-xs rounded">DELETED</span>}
       </div>
+
+      {!employee.isDeleted && (
+        <div className="absolute inset-0 bg-linear-to-t from-indigo-700/20
+        via-transparent to-transparent opacity-0 group-hover:opacity-100
+        transition-opacity flex items-end justify-center pb-6 gap-3">
+          <button onClick={() => onEdit(employee)} className="p-2.5 bg-white/90 backdrop-blur-sm text-slate-700
+          hover:text-indigo-600 rounded-xl shadow-lg transition-all hover:scale-105">
+            <PencilIcon className="w-4 h-4" />
+          </button>
+          <button className="p-2.5 bg-white/90 backdrop-blur-sm text-slate-700 hover:text-rose-600
+          rounded-xl shadow-lg transition-all hover:scale-105 disabled:opacity-50">
+            <Trash2Icon className="w-4 h-4" />
+          </button>
+        </div>
+      )}
 
       <div className="p-5">
         <h3 className="text-slate-900">{employee.firstName} {employee.lastName}</h3>
