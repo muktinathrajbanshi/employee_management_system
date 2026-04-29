@@ -2,19 +2,9 @@
 const EmployeeCard = ({employee, onDelete, onEdit}) => {
   return (
     <div className="group relative card card-holder overflow-hidden">
-      <div>
-        <div className="w-full h-full flex items-center justify-center">
-        {/* circle  */}
-            <div className="w-20 h-20 rounded-full bg-linear-to-br from-indigo-100 to-slate-100
-            flex items-center justify-center">
-                <span className="text-2xl font-medium text-indigo-400">
-                    {employee.firstName[0]} {employee.lastName[0]}
-                </span>
-            </div>
-        </div>
-      </div>
+      <div></div>
       <div className="p-5">
-        <h3>{employee.firstName} {employee.lastName}</h3>
+        <h3 className="text-slate-900">{employee.firstName} {employee.lastName}</h3>
         <p className="text-xs text-slate-500">{employee.position}</p>
       </div>
     </div>
