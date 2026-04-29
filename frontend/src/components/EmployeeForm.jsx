@@ -10,9 +10,14 @@ const EmployeeForm = ({initialData, onSuccess, onCancel}) => {
     }
 
   return (
-    <div>
+    <form onSubmit={handleSubmit} className="space-y-6 max-w-3xl animate-fade-in">
       
+    {/* Personal Inormation  */}
+    <div>
+        <h3 className="font-medium mb-6">Personal Information</h3>
     </div>
+
+    </form>
   )
 }
 
