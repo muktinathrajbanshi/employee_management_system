@@ -39,7 +39,7 @@ const Employees = () => {
         <h1 className="page-title">Employees</h1>
         <p className="page-subtitle">Manage your team members</p>
       </div>
-      <button className="btn-primary flex items-center gap-2 w-full sm:w-auto justify-center">
+      <button onClick={() => setShowCreateModal(true)} className="btn-primary flex items-center gap-2 w-full sm:w-auto justify-center">
         <Plus size={16} /> Add Employee
       </button>
       </div>
@@ -100,16 +100,21 @@ const Employees = () => {
                 <X className="w-5 h-5" />
               </button>
             </div>
-            <div>
-              
+            <div className="p-6">
+              form
             </div>
           </div>
         </div>
       )}
 
 
-      {/* Create Employee Modal  */}
+      {/* Edit Employee Modal  */}
+      {editEmployee && (
+        <div className="fixed inset-0 z-50 flex items-start justify-center
+        p-4 overflow-y-auto bg-black/40 backdrop-blur-sm" onClick={() => setEditEmployee(null)}>
 
+        </div>
+      )}
 
     </div>
   )
