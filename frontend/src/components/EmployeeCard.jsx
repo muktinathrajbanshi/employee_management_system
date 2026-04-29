@@ -4,7 +4,7 @@ const EmployeeCard = ({employee, onDelete, onEdit}) => {
     <div className="group relative card card-holder overflow-hidden">
 
       <div className="relative aspect-4/3 w-full overflow-hidden bg-linear-to-br
-      from-slate-100 to-slate-50">
+       from-slate-100 to-slate-50">
 
         <div className="w-full h-full flex items-center justify-center">
         {/*  circle icon */}
@@ -15,6 +15,14 @@ const EmployeeCard = ({employee, onDelete, onEdit}) => {
             </span>
           </div>
         </div>
+      </div>
+
+      <div className="absolute top-3 left-3 flex gap-2">
+        <span className="bg-white/90 backdrop-blur-sm px-2.5 py-1
+        text-xs font-semibold text-slate-600 rounded-lg shadow-sm">
+        {employee.department || "Remote"} </span>
+        {employee.isDeleted && <span className="bg-red-500/60
+        font-medium text-white px-2.5 py-1 text-xs rounded">DELETED</span>}
       </div>
 
       <div className="p-5">
