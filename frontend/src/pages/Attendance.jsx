@@ -1,5 +1,6 @@
-import { useCallback, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { dummyAttendanceData } from "../assets/assets"
+import Loading from "../components/Loading"
 
 
 const Attendance = () => {
@@ -13,6 +14,16 @@ const Attendance = () => {
     setLoading(false)
     }, 1000)
   }, [])
+
+  useEffect(() => {
+    fetchData()
+  }, [fetchData]);
+
+  if (loading) return <Loading />
+
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+  const todayRecord = history.find((r) => new Date(r.date))
 
   return (
     <div>
