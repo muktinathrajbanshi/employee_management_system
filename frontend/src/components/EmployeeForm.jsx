@@ -1,10 +1,13 @@
 import { useNavigate } from "react-router-dom"
 import { DEPARTMENTS } from "../assets/assets"
+import { Loader2Icon } from "lucide-react"
+import { useState } from "react"
 
 const EmployeeForm = ({initialData, onSuccess, onCancel}) => {
 
     const navigate = useNavigate()
     const isEditMode = !!initialData
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -130,11 +133,14 @@ const EmployeeForm = ({initialData, onSuccess, onCancel}) => {
 
     {/* Buttons  */}
     <div className="flex flex-col-reverse sm:flex-row justify-end gap-3 pt-2">
-        <button type="button" className="btn-secondary">
+        <button type="button" className="btn-secondary" onClick={() => 
+        (onCancel ? onCancel() : navigate(-1))}>
             Cancel
         </button>
-        <button type="submit" className="btn-primary flex items-center justify-center">
-            Cancel
+        <button type="submit" disabled={loading} className="btn-primary flex 
+        items-center justify-center">
+            {loading && <Loader2Icon className="w-4 h-4 mr-2 animate-spin" />}
+            {isEditMode ? "Update Employee" : "Create Employee"}
         </button>
     </div>
 
