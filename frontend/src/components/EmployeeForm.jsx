@@ -129,6 +129,14 @@ const EmployeeForm = ({initialData, onSuccess, onCancel}) => {
       
 
     {/* Buttons  */}
+    <div className="flex flex-col-reverse sm:flex-row justify-end gap-3 pt-2">
+        <button type="button" className="btn-secondary">
+            Cancel
+        </button>
+        <button type="submit" className="btn-primary flex items-center justify-center">
+            Cancel
+        </button>
+    </div>
 
     </form>
   )
