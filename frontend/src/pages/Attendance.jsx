@@ -23,11 +23,14 @@ const Attendance = () => {
 
   const today = new Date()
   today.setHours(0, 0, 0, 0)
-  const todayRecord = history.find((r) => new Date(r.date))
+  const todayRecord = history.find((r) => new Date(r.date).toDateString() === today.toDateString())
 
   return (
-    <div>
-      Attendance
+    <div className="animate-fade-in">
+      <div className="page-header">
+        <h1 className="page-title">Attendance</h1>
+        <p className="page-subtitle">Track your work hours and daily check-ins</p>
+      </div>
     </div>
   )
 }
