@@ -94,7 +94,39 @@ const EmployeeForm = ({initialData, onSuccess, onCancel}) => {
     </div>
     
     {/* Account Setup  */}
+    <div className="card p-5 sm:p-6">
+        <h3 className="text-base font-medium text-slate-900 mb-6 pb-4
+        border-b border-slate-100">Account Setup</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 text-sm 
+        text-slate-700">
+            <div className="sm:col-span-2">
+              <label className="block mb-2">Work Email</label>
+              <input type="email" name="email" required defaultValue={initialData?.email} />
+            </div>
+            {!isEditMode && (
+              <div>
+                <label className="block mb-2">Temporary Password</label>
+                <input type="password" name="password" required />
+              </div>
+            )}
 
+            {isEditMode && (
+              <div>
+                <label className="block mb-2">Change Password (Optional)</label>
+                <input type="password" name="password"
+                placeholder="Leave blank to keep current" />
+              </div>
+            )}
+            <div>
+              <label className="block mb-2">System Role</label>
+              <select name="role" defaultValue={initialData?.user?.role || "EMPLOYEE"}>
+                <option value="EMPLOYEE">Employee</option>
+                <option value="ADMIN">Admin</option>
+              </select>
+            </div>
+        </div>
+    </div>
+      
 
     {/* Buttons  */}
 
