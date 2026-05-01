@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Loader2Icon, LogInIcon } from 'lucide-react'
 
 const CheckInButton = ({todayRecord, onAction}) => {
     const [loading, setLoading] = useState(false)
@@ -13,15 +14,22 @@ const CheckInButton = ({todayRecord, onAction}) => {
 
     if(todayRecord?.checkOut) {
         return (
-            <div>
-                <h3>Work Day Completed</h3>
-                <p>Great job! See you tomorrow</p>
+            <div className="flex flex-col items-center justify-center p-8 bg-slate-50
+            rounded-2xl border border-slate-200">
+                <h3 className="text-lg font-bold text-slate-900">Work Day Completed</h3>
+                <p className="text-slate-500 text-sm mt-1">Great job! See you tomorrow</p>
             </div>
         )
     }
+
+    const isCheckedIn = !!todayRecord?.isCheckedIn;
   return (
-    <div>
-      
+    <div className="absolute bottom-4 right-4 flex flex-col z-1">
+      <button>
+        {loading ? <Loader2Icon className="size-7 animate-spin" /> : isCheckedIn ?
+
+        <LogOutIcon className="size-7" /> : <LogInIcon className="size-7" />}
+      </button>
     </div>
   )
 }
