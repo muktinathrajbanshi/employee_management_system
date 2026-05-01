@@ -29,6 +29,11 @@ const CheckInButton = ({todayRecord, onAction}) => {
         {loading ? <Loader2Icon className="size-7 animate-spin" /> : isCheckedIn ?
 
         <LogOutIcon className="size-7" /> : <LogInIcon className="size-7" />}
+
+        <div>
+            <h2>{loading ? "Processing..." : isCheckedIn ? "Clock Out" : "Clock In"}</h2>
+            <p>{isCheckedIn ? "Click to end your shift" : "start your work day"}</p>
+        </div>
       </button>
     </div>
   )
