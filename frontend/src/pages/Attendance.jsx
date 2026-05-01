@@ -31,6 +31,16 @@ const Attendance = () => {
         <h1 className="page-title">Attendance</h1>
         <p className="page-subtitle">Track your work hours and daily check-ins</p>
       </div>
+
+      {isDeleted ? (
+        <div className="mb-8 p-6 bg-rose-50 border border-rose-200 rounded-2xl text-center">
+          <p className="text-rose-600">You can no longer clock in or out because your employee records have been marked as deleted.</p>
+        </div>
+      ): (
+        <div className="mb-8">
+          check in button
+        </div>
+      )}
     </div>
   )
 }
