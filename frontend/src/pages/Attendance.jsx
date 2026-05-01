@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react"
 import { dummyAttendanceData } from "../assets/assets"
 import Loading from "../components/Loading"
+import CheckInButton from "../components/attendance/CheckinButton"
 
 
 const Attendance = () => {
@@ -38,7 +39,7 @@ const Attendance = () => {
         </div>
       ): (
         <div className="mb-8">
-          check in button
+          <CheckInButton todayRecord={todayRecord} onAction={fetchData} />
         </div>
       )}
     </div>
