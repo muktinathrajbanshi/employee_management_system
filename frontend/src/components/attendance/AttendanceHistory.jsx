@@ -36,6 +36,11 @@ const AttendanceHistory = ({history}) => {
                     <td className="px-6 py-4 font-medium text-slate-900">
                       {format(new Date(record.date), "MMM dd, yyyy")}
                     </td>
+
+                    <td className="px-6 py-4 text-slate-600">
+                      {record.checkIn ? format(new Date(record.checkIn), "hh:mm a") : "-"}
+                      
+                    </td>
                   </tr>
                 )
               })
