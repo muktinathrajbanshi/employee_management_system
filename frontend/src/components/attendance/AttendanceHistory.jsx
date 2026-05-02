@@ -1,5 +1,5 @@
 import React from 'react'
-import { getDayTypeDisplay } from '../../assets/assets'
+import { getDayTypeDisplay, getWorkingHoursDisplay } from '../../assets/assets'
 import { format } from "date-fns"
 
 const AttendanceHistory = ({history}) => {
@@ -43,6 +43,10 @@ const AttendanceHistory = ({history}) => {
 
                     <td className="px-6 py-4 text-slate-600">
                       {record.checkOut ? format(new Date(record.checkOut), "hh:mm a") : "-"}
+                    </td>
+
+                     <td className="px-6 py-4 text-slate-600 font-medium">
+                     {getWorkingHoursDisplay(record)}
                     </td>
                   </tr>
                 )
