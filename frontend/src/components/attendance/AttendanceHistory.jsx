@@ -53,6 +53,14 @@ const AttendanceHistory = ({history}) => {
                       {dayType.label !== "-" ? <span className=
                       {`badge ${dayType.className}`}>{dayType.label}</span> : "-"}
                     </td>
+
+                     <td className="px-6 py-4">
+                        <span className={`badge ${record.status === 
+                        "PRESENT" ? "badge-success" : record.status === 
+                        "LATE" ? "badge-warning" : "badge-danger"}`}>
+                        {record.status}
+                        </span>
+                    </td>
                   </tr>
                 )
               })
