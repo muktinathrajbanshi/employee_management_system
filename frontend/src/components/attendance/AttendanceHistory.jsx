@@ -48,6 +48,11 @@ const AttendanceHistory = ({history}) => {
                      <td className="px-6 py-4 text-slate-600 font-medium">
                      {getWorkingHoursDisplay(record)}
                     </td>
+
+                    <td className="px-6 py-4">
+                      {dayType.label !== "-" ? <span className=
+                      {`badge ${dayType.className}`}>{dayType.label}</span> : "-"}
+                    </td>
                   </tr>
                 )
               })
