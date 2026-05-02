@@ -1,6 +1,8 @@
 import React from 'react'
+import { getDayTypeDisplay } from '../../assets/assets'
+import { format } from "date-fns"
 
-const AttendanceHistory = () => {
+const AttendanceHistory = ({history}) => {
   return (
     <div className="card overflow-hidden">
       <div className="px-6 py-4 border-b border-slate-100">
@@ -19,6 +21,26 @@ const AttendanceHistory = () => {
 
             </tr>
           </thead>
+          <tbody>
+            {history.length === 0 ? (
+              <tr>
+                <td colSpan={6} className="text-center py-12 text-slate-400">
+                  No records found
+                </td>
+              </tr>
+            ) : (
+              history.map((record) => {
+                const dayType = getDayTypeDisplay(record)
+                return (
+                  <tr key={record._id || record.id}>
+                    <td className="px-6 py-4 font-medium text-slate-900">
+                      {format(new Date(record.date), "MMM dd, yyyy")}
+                    </td>
+                  </tr>
+                )
+              })
+            )}
+          </tbody>
         </table>
       </div>
     </div>
