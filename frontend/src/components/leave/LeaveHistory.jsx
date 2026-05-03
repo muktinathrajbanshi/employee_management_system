@@ -61,7 +61,8 @@ const LeaveHistory = ({leaves, isAdmin, onUpdate}) => {
                         <td>
                           {leave.status === "PENDING" && (
                             <div className="flex justify-center gap-2">
-                              <button>
+                              <button className="p-1.5 rounded-md bg-emerald-50 text-emerald-600
+                              hover:bg-emerald-100 transition-colors">
                                 {processing === (leave._id || leave.id) ? <Loader2
                                 className="w-4 h-4 animate-spin" /> : <Check
                                 className="w-4 h-4" />}
