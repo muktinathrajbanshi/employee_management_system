@@ -1,3 +1,4 @@
+import { Check, Loader2 } from "lucide-react"
 
 const LeaveHistory = ({leaves, isAdmin, onUpdate}) => {
     const [processing, setProcessing] = useState(null)
@@ -61,7 +62,9 @@ const LeaveHistory = ({leaves, isAdmin, onUpdate}) => {
                           {leave.status === "PENDING" && (
                             <div className="flex justify-center gap-2">
                               <button>
-                                
+                                {processing === (leave._id || leave.id) ? <Loader2
+                                className="w-4 h-4 animate-spin" /> : <Check
+                                className="w-4 h-4" />}
                               </button>
                             </div>
                           )}
