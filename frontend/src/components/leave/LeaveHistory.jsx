@@ -1,4 +1,4 @@
-import { Check, Loader2 } from "lucide-react"
+import { Check, Loader2, X } from "lucide-react"
 
 const LeaveHistory = ({leaves, isAdmin, onUpdate}) => {
     const [processing, setProcessing] = useState(null)
@@ -64,6 +64,12 @@ const LeaveHistory = ({leaves, isAdmin, onUpdate}) => {
                               <button>
                                 {processing === (leave._id || leave.id) ? <Loader2
                                 className="w-4 h-4 animate-spin" /> : <Check
+                                className="w-4 h-4" />}
+                              </button>
+
+                               <button>
+                                {processing === (leave._id || leave.id) ? <Loader2
+                                className="w-4 h-4 animate-spin" /> : <X
                                 className="w-4 h-4" />}
                               </button>
                             </div>
