@@ -31,18 +31,19 @@ const LeaveHistory = ({leaves, isAdmin, onUpdate}) => {
                  leaves.map((leave) => {
                    return (
                      <tr key={leave._id || leave.id}>
+                     {isAdmin && (
                        <td className="text-slate-900">
                          {leave.employee?.firstName}
                          {leave.employee?.firstName}
+                       </td>
+                     )}
 
+                       <td>
+                       <span className="badge bg-slate-100 text-slate-600">{leave.type}</span>
                        </td>
    
-                       <td className="px-6 py-4 text-slate-600">
-                         {record.checkIn ? format(new Date(record.checkIn), "hh:mm a") : "-"}
-                       </td>
-   
-                       <td className="px-6 py-4 text-slate-600">
-                         {record.checkOut ? format(new Date(record.checkOut), "hh:mm a") : "-"}
+                       <td className="text-xs text-slate-500">
+                         {format(new Date(leave.startDate), "MMM dd")} -  {format(new Date(leave.endDate), "MMM dd, yyyy")}
                        </td>
    
                         <td className="px-6 py-4 text-slate-600 font-medium">
