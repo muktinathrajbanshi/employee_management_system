@@ -46,13 +46,15 @@ const LeaveHistory = ({leaves, isAdmin, onUpdate}) => {
                          {format(new Date(leave.startDate), "MMM dd")} -  {format(new Date(leave.endDate), "MMM dd, yyyy")}
                        </td>
    
-                        <td className="px-6 py-4 text-slate-600 font-medium">
-                        {getWorkingHoursDisplay(record)}
+                        <td className="max-w-xs truncate text-slate-500" title={leave.reason}>
+                        {leave.reason}
                        </td>
    
-                       <td className="px-6 py-4">
-                         {dayType.label !== "-" ? <span className=
-                         {`badge ${dayType.className}`}>{dayType.label}</span> : "-"}
+                       <td>
+                        <span className={`badge ${leave.status === "APPROVED" ? 
+                        "badge-success" : leave.status === "REJECTED" ? "badge-danger" : "badge-warning"}`}>
+                          {leave.status}
+                        </span>
                        </td>
    
                         <td className="px-6 py-4">
