@@ -56,14 +56,17 @@ const LeaveHistory = ({leaves, isAdmin, onUpdate}) => {
                           {leave.status}
                         </span>
                        </td>
-   
-                        <td className="px-6 py-4">
-                           <span className={`badge ${record.status === 
-                           "PRESENT" ? "badge-success" : record.status === 
-                           "LATE" ? "badge-warning" : "badge-danger"}`}>
-                           {record.status}
-                           </span>
+                          {isAdmin && (
+                        <td>
+                          {leave.status === "PENDING" && (
+                            <div className="flex justify-center gap-2">
+                              <button>
+                                
+                              </button>
+                            </div>
+                          )}
                        </td>
+                          )}
                      </tr>
                    )
                  })
