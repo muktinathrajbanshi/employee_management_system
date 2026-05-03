@@ -1,4 +1,6 @@
 import { Check, Loader2, X } from "lucide-react"
+import { useState } from "react"
+import { format } from "date-fns"
 
 const LeaveHistory = ({leaves, isAdmin, onUpdate}) => {
     const [processing, setProcessing] = useState(null)
@@ -15,6 +17,7 @@ const LeaveHistory = ({leaves, isAdmin, onUpdate}) => {
                 {isAdmin && <th>Employee</th>}
                 <th>Type</th>
                 <th>Dates</th>
+                <th>Reason</th>
                 <th>Status</th>
                 {isAdmin && <th className="text-center">Actions</th>}
 
@@ -63,6 +66,7 @@ const LeaveHistory = ({leaves, isAdmin, onUpdate}) => {
                             <div className="flex justify-center gap-2">
                               <button 
                               onClick={() => handleStatusUpdate(leave._id || leave.id, "APPROVED")}
+                              disabled={!!processing}
                               className="p-1.5 rounded-md bg-emerald-50 text-emerald-600
                               hover:bg-emerald-100 transition-colors">
                                 {processing === (leave._id || leave.id) ? <Loader2
@@ -72,6 +76,7 @@ const LeaveHistory = ({leaves, isAdmin, onUpdate}) => {
 
                                <button 
                               onClick={() => handleStatusUpdate(leave._id || leave.id, "REJECTED")}
+                              disabled={!!processing}
                                className="p-1.5 rounded-md bg-rose-50 text-rose-600
                                hover:bg-rose-100 transition-colors">
                                 {processing === (leave._id || leave.id) ? <Loader2

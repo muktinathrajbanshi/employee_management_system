@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react"
 import { dummyLeaveData } from "../assets/assets"
 import Loading from "../components/Loading"
 import { PalmtreeIcon, PlusIcon, ThermometerIcon, UmbrellaIcon } from "lucide-react"
+import LeaveHistory from "../components/leave/LeaveHistory"
 
 const Leave = () => {
 
@@ -74,6 +75,7 @@ const Leave = () => {
          ))}
         </div>
       )}
+      <LeaveHistory leaves={leaves} isAdmin={isAdmin} onUpdate={fetchLeaves} />
     </div>
   )
 }
