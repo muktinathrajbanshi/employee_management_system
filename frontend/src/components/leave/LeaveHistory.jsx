@@ -61,14 +61,19 @@ const LeaveHistory = ({leaves, isAdmin, onUpdate}) => {
                         <td>
                           {leave.status === "PENDING" && (
                             <div className="flex justify-center gap-2">
-                              <button className="p-1.5 rounded-md bg-emerald-50 text-emerald-600
+                              <button 
+                              onClick={() => handleStatusUpdate(leave._id || leave.id, "APPROVED")}
+                              className="p-1.5 rounded-md bg-emerald-50 text-emerald-600
                               hover:bg-emerald-100 transition-colors">
                                 {processing === (leave._id || leave.id) ? <Loader2
                                 className="w-4 h-4 animate-spin" /> : <Check
                                 className="w-4 h-4" />}
                               </button>
 
-                               <button>
+                               <button 
+                              onClick={() => handleStatusUpdate(leave._id || leave.id, "REJECTED")}
+                               className="p-1.5 rounded-md bg-rose-50 text-rose-600
+                               hover:bg-rose-100 transition-colors">
                                 {processing === (leave._id || leave.id) ? <Loader2
                                 className="w-4 h-4 animate-spin" /> : <X
                                 className="w-4 h-4" />}
