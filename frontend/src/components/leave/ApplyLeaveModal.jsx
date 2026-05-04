@@ -1,4 +1,4 @@
-import { X } from "lucide-react";
+import { FileTextIcon, X } from "lucide-react";
 import { useState } from "react"
 
 const ApplyLeaveModal = ({open, onClose, onSuccess}) => {
@@ -25,15 +25,39 @@ const ApplyLeaveModal = ({open, onClose, onSuccess}) => {
         {/* Header  */}
         <div className="flex items-center justify-between p-6 pb-0">
             <div>
-                <h2></h2>
-                <p></p>
+                <h2 className="text-lg font-semibold
+                text-slate-800">Apply for Leave</h2>
+                <p className="text-sm text-slate-400 mt-0.5">Submit your leave request for approval</p>
             </div>
             <button onClick={onClose} className="p-2 rounded-lg hover:bg-slate-100
             transition-colors text-slate-400 hover:text-slate-600">
                 <X className="w-5 h-5" />
             </button>
         </div>
+        {/* Form  */}
+        <form onSubmit={handleSubmit} className="p-6 space-y-5">
+            {/* leave type  */}
+            <div>
+                <label className="flex items-center gap-2 text-sm font-medium
+                text-slate-700 mb-2">
+                    <FileTextIcon className="w-4 h-4 text-slate-400" />
+                    Leave Type
+                </label>
+                <select name="type" required>
+                    <option value="SICK">Sick Leave</option>
+                    <option value="CASUAL">Casual Leave</option>
+                    <option value="ANNUAL">Sick Leave</option>
 
+                </select>
+            </div>
+            
+            {/* duration  */}
+
+            {/* reason  */}
+
+            {/* buttons  */}
+
+        </form>
       </div>
     </div>
   )
