@@ -72,8 +72,17 @@ const ApplyLeaveModal = ({open, onClose, onSuccess}) => {
             </div>
 
             {/* reason  */}
+            <div>
+                <label className="text-sm font-medium text-slate-700
+                mb-2 block">
+                    Reason
+                </label>
+                <textarea name="reason" required rows={3} 
+                className="resize-none" placeholder="Briefly describe why you need this leave..." />
+            </div>
 
             {/* buttons  */}
+            
 
         </form>
       </div>
