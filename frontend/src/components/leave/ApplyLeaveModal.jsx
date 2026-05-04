@@ -65,7 +65,7 @@ const ApplyLeaveModal = ({open, onClose, onSuccess}) => {
                     </div>
                    <div>
                         <span className="block text-xs text-slate-400 mb-1">To</span>
-                        <input type="date" name="startDate" required
+                        <input type="date" name="endDate" required
                         min={minDate}/>
                     </div>
                 </div>
