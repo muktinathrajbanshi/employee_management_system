@@ -58,6 +58,11 @@ const GeneratePayslipForm = ({employees, onSuccess}) => {
                             ))}
                     </select>
                 </div>
+                 <div>
+                    <label className="block text-sm font-medium
+                    text-slate-700 mb-2">Year</label>
+                    <input type="number" name="year" defaultValue={new Date().getFullYear()} />
+                </div>
             </div>
 
             {/* Basic Salary  */}
