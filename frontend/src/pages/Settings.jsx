@@ -22,8 +22,11 @@ const Settings = () => {
   if(loading) return <Loading />
 
   return (
-    <div>
-      Settings
+    <div className="animate-fade-in">
+      <div>
+        <h1 className="page-title">Settings</h1>
+        <p className="page-subtitle">Manage your account and preferences</p>
+      </div>
     </div>
   )
 }
