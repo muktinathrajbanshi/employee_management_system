@@ -45,6 +45,20 @@ const GeneratePayslipForm = ({employees, onSuccess}) => {
                 </select>
             </div>
             {/* select month & year  */}
+            <div className="grid grid-cols-2 gap-4">
+                <div>
+                    <label className="block text-sm font-medium
+                    text-slate-700 mb-2">Month</label>
+                    <select name="month">
+                        {Array.from({length: 12}, (_, i)=> i + 1).map(
+                            (m) => (
+                                <option key={m} value={m}>
+                                 {m}
+                                </option>
+                            ))}
+                    </select>
+                </div>
+            </div>
 
             {/* Basic Salary  */}
 
