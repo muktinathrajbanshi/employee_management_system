@@ -91,7 +91,11 @@ const GeneratePayslipForm = ({employees, onSuccess}) => {
             </div>
 
             {/* Buttons  */}
-
+            <div className="flex justify-end gap-3 pt-2">
+                <button onClick={() => setIsOpen(false)} type="button" className="btn-secondary">
+                    Cancel
+                </button>
+            </div>
 
         </form>
       </div>
