@@ -82,6 +82,12 @@ const GeneratePayslipForm = ({employees, onSuccess}) => {
                 <input type="number" name="allowances" 
                     defaultValue="0"/>
              </div>
+             <div>
+                <label className="block text-sm font-medium
+                text-slate-700 mb-2">Deductions</label>
+                <input type="number" name="deductions" 
+                    defaultValue="0"/>
+             </div>
             </div>
 
             {/* Buttons  */}
