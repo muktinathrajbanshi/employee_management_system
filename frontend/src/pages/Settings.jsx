@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { dummyProfileData } from "../assets/assets"
 import Loading from "../components/Loading"
 import { Lock } from "lucide-react"
+import ProfileForm from "../components/ProfileForm"
 
 const Settings = () => {
 
@@ -29,7 +30,7 @@ const Settings = () => {
         <p className="page-subtitle ">Manage your account and preferences</p>
       </div>
 
-      {profile && <p>profile form</p>}
+      {profile && <ProfileForm initialData = {profile} onSuccess={fetchProfile} />}
 
        {/* Change Password trigger  */}
         <div className="card max-w-md p-6 flex items-center justify-between">
