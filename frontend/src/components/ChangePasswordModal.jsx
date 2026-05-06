@@ -1,4 +1,4 @@
-import { LockIcon, X } from "lucide-react"
+import { Loader2Icon, LockIcon, X } from "lucide-react"
 import { useState } from "react"
 
 const ChangePasswordModal = ({open, onClose}) => {
@@ -47,6 +47,26 @@ const ChangePasswordModal = ({open, onClose}) => {
                         {message.text}
                     </div>
                 )}
+                <div>
+                    <label className="block text-sm font-medium 
+                    text-slate-700 mb-2">Current Password</label>
+                    <input type="password" name="currentPassword" required />
+                </div>
+                 <div>
+                    <label className="block text-sm font-medium 
+                    text-slate-700 mb-2">New Password</label>
+                    <input type="password" name="newPassword" required />
+                </div>
+                <div className="flex gap-3 pt-2">
+                    <button type="button" onClick={onClose} className="btn-secondary flex-1">
+                        Cancel
+                    </button>
+                    <button type="submit" disabled={loading} className="btn-primary flex-1
+                    flex justify-center items-center gap-2">
+                        {loading && <Loader2Icon className="w-4 h-4 animate-spin" />}
+                        Update Password
+                    </button>
+                </div>
             </form>
         </div>
     </div>
