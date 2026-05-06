@@ -43,6 +43,16 @@ const ProfileForm = ({initialData, onSuccess}) => {
                     <input disabled value={`${initialData.firstName} ${initialData.lastName}`} 
                     className="bg-slate-50 text-slate-400 cursor-not-allowed" />
                 </div>
+                 <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">Email</label>
+                    <input disabled value={initialData.email} 
+                    className="bg-slate-50 text-slate-400 cursor-not-allowed" />
+                </div>
+                 <div>
+                    <label className="sm:col-span-2">Position</label>
+                    <input disabled value={initialData.position} 
+                    className="bg-slate-50 text-slate-400 cursor-not-allowed" />
+                </div>
             </div>
         </div>
     </form>
