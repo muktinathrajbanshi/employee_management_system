@@ -31,6 +31,23 @@ const ChangePasswordModal = ({open, onClose}) => {
                  <X className="w-5 h-5" />
                  </button>
             </div>
+
+            <form 
+            onSubmit={handleSubmit}
+            className="p-6 space-y-5">
+                {message.text && (
+                    <div className={`p-3 rounded-xl tex-sm flex items-start gap-3
+                    ${message.type === "success"
+                    ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
+                    : "bg-rose-50 text-rose-700 border border-rose-200"}`}>
+                        <div className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0
+                        ${message.type === "success" 
+                        ? "bg-emerald-500" 
+                        : "bg-rose-500"}`}/>
+                        {message.text}
+                    </div>
+                )}
+            </form>
         </div>
     </div>
   )
