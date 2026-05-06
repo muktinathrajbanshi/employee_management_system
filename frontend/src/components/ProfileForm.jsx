@@ -17,6 +17,34 @@ const ProfileForm = ({initialData, onSuccess}) => {
         border-b border-slate-100 flex items-center gap-2">
             <User className="w-5 h-5 text-slate-400" /> Public Profile
         </h2>
+
+        {error && (
+            <div className="bg-rose-50 text-rose-700 p-4 rounded-xl text-sm
+            border border-rose-200 mb-6 flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-1.5
+                shrink-0" />
+                {error}
+            </div>
+        )}
+
+         {message && (
+            <div className="bg-emerald-50 text-emerald-700 p-4 rounded-xl text-sm
+            border border-emerald-200 mb-6 flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5
+                shrink-0" />
+                {message}
+            </div>
+        )}
+
+        <div className="space-y-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">Name</label>
+                    <input disabled value={`${initialData.firstName} ${initialData.lastName}`} 
+                    className="bg-slate-50 text-slate-400 cursor-not-allowed" />
+                </div>
+            </div>
+        </div>
     </form>
   )
 }
