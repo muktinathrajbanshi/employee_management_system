@@ -1,4 +1,4 @@
-import { User } from "lucide-react";
+import { Loader2, Save, User } from "lucide-react";
 import { useState } from "react"
 
 const ProfileForm = ({initialData, onSuccess}) => {
@@ -68,6 +68,26 @@ const ProfileForm = ({initialData, onSuccess}) => {
                     : ""}`} />
                     <p className="text-xs text-slate-400 mt-1.5">This will be displayed on your profile.</p>
             </div>
+            {initialData.isDeleted ? (
+                <div className="pt-2">
+                    <div className="p-4 bg-rose-50 border border-rose-200
+                    rounded-xl text-center">
+                        <p className="text-rose-600 font-medium tracking-tight">Account Deactivated</p>
+                        <p className="text-sm text-rose-500 mt-0.5">You can no longer update your profile.</p>
+                    </div>
+                </div>
+            ) : (
+                <div className="flex justify-end pt-2">
+                    <button type="submit" disabled={loading}
+                    className="btn-primary flex items-center gap-2 justify-center
+                    w-full sm:w-auto">
+                        {loading 
+                        ? <Loader2 className="w-4 h-4 animate-spin"/>
+                        : <Save className="w-4 h-4" />}
+                        Save Changes
+                    </button>
+                </div>
+            )}
         </div>
     </form>
   )
