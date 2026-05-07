@@ -32,6 +32,19 @@ const PrintPayslip = () => {
           <p className="text-xs text-slate-400 uppercase tracking-wider mb-1">Employee Name</p>
           <p className="font-semibold text-slate-900">{payslip.employee?.firstName} {payslip.employee?.lastName}</p>
         </div>
+         <div>
+          <p className="text-xs text-slate-400 uppercase tracking-wider mb-1">Position</p>
+          <p className="font-semibold text-slate-900">{payslip.employee?.position}</p>
+        </div>
+        <div>
+          <p className="text-xs text-slate-400 uppercase tracking-wider mb-1">Email</p>
+          <p className="font-semibold text-slate-900">{payslip.employee?.email}</p>
+        </div>
+        <div>
+          <p className="text-xs text-slate-400 uppercase tracking-wider mb-1">Period</p>
+          <p className="font-semibold text-slate-900">
+           {format (new Date(payslip.year, payslip.month -1), "MMMM yyyy")}</p>
+        </div>
       </div>
     </div>
   )
