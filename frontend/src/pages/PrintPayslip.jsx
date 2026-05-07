@@ -80,6 +80,11 @@ const PrintPayslip = () => {
           </tbody>
         </table>
       </div>
+      <div className="text-center">
+        <button className="btn-primary print:hidden" onClick={() => window.print()}>
+          Print Payslip
+        </button>
+      </div>
     </div>
   )
 }
