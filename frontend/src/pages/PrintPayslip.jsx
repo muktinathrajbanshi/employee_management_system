@@ -56,6 +56,13 @@ const PrintPayslip = () => {
               tracking-wider">Amount</th>
             </tr>
           </thead>
+          <tbody>
+            <tr className="border-t border-slate-100">
+              <td className="py-3 px-4 text-slate-700">Basic Salary</td>
+              <td className="text-right py-3 px-4 
+              text-slate-900 font-medium">${payslip.basicSalary?.toLocaleString()}</td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
