@@ -102,15 +102,15 @@ export const updateEmployee = async (req, res) => {
         const userUpdate = {email}
         if(role) userUpdate.role = role;
         if(password) userUpdate.password = await bcrypt.hash(password, 10);
+        await User.findByIdAndUpdate(employee.userId, userUpdate)
 
-        return res.status(201).json({ success: true, employee })
+        return res.json({ success: true })
 
     } catch (error) {
         if(error.code === 11000) {
             return res.status(400).json({ error: "Email already exists" })
         }
-        console.error("Create employee error: ", error);
-        return res.status(500).json({ error: "Failed to create employee" });
+        return res.status(500).json({ error: "Failed to update employee" });
     }
 }
 
