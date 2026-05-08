@@ -59,8 +59,14 @@ export const createEmployees = async (req, res) => {
             bio: bio || "",
         })
 
+        return res.status(201).json({ success: true, employee })
+
     } catch (error) {
-        
+        if(error.code === 11000) {
+            return res.status(400).json({ error: "Email already exists" })
+        }
+        console.error("Create employee error: ", error);
+        return res.status(500).json({ error: "Failed to create employee" });
     }
 
 }
