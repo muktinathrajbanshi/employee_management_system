@@ -1,5 +1,5 @@
 import Employee from "../models/Employee";
-import brcypt from "bcrypt";
+import bcrypt from "bcrypt";
 import User from "../models/User";
 
 // Get employees
