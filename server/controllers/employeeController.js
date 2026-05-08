@@ -27,7 +27,7 @@ export const getEmployees = async (req, res) => {
 
 // Create employee
 // POST /api/employees
-export const createEmployees = async (req, res) => {
+export const createEmployee = async (req, res) => {
     try {
         const {firstName, lastName, email, phone, position,
             department, basicSalary, allowances, deductions, joinDate,
@@ -116,7 +116,7 @@ export const updateEmployee = async (req, res) => {
 
 // Delete employee
 // DELETE /api/employees/:id
-export const updateEmployee = async (req, res) => {
+export const deleteEmployee = async (req, res) => {
     try {
         const { id } = req.params;
 
