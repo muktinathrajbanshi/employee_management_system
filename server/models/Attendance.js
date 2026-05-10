@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const attendanceSchema = new mongoose.Schema({
     employeeId: {type: mongoose.Schema.Types.ObjectId, ref: "Employee",
-        required: true, unique: true},
+        required: true},
         date: { type: Date, required: true },
         checkIn: { type: Date, default: null },
         status: { type: String, enum: ["PRESENT", "ABSENT", "LATE"],
