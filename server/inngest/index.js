@@ -52,12 +52,55 @@ const leaveApplicationReminder = inngest.createFunction(
     // wait for 24 hours
     await step.sleepUntil("wait-for-the-24-hours", new Date(new Date().getTime() + 24 * 60 * 60 * 1000))
 
-    const leaveApplication = await LeaveApplication
+    const leaveApplication = await LeaveApplication.findById(leaveApplicationId)
+
+    if (leaveApplication?.status === "PENDING") {
+        const employee = await Employee.findById(leaveApplication.employeeId)
+
+        // Send reminder email to admin to take action on leave application
+    }
   }
+);
 
 
+// Cron: Check attendance at 11:30 AM IST (06:00 UTC) and email absent employees
+const attendanceReminderCron = inngest.createFunction(
+  { id: "attendance-reminder-cron"},
+  { cron: "0 0 6 * * *"}, // 06:00 UTC = 11:30 AM IST
+  
+  async ({ step }) => {
+    // Step 1: Get today's date range (IST)
+    const today = await step.run("get-today-date", () => {
+        const startUTC = new Date(new Date().toLocaleDateString("en-CA", {timeZone: "Asia/Kathmandu"}) + "T00:00:00 + 05:30");
+        const endUTC = new Date(startUTC.getTime() + 24 * 60 * 60 *1000);
+
+        return { startUTC: startUTC.toISOString(), endUTC: endUTC.toISOString() }
+    })
+
+    // Step 2: Get all active, non-deleted employees
+    const activeEmployees = await step.run("get-active-employees", async () => {
+        const employees = await Employee.find({
+            isDeleted: false,
+            employmentStatus: "ACTIVE",
+        }).lean();
+        return employees.map((e) => ({_id: e._id.toString(),
+            firstName: e.firstName, lastName: e.lastName, email: e.email,
+            department: e.department}))
+    })
+
+    // Step 3: Get employee IDs on approved leave today
+    const onLeaveIds = await step.run("get-on-leave-ids", async () => {
+        const leaves = await LeaveApplication.find({
+            status: "APPROVED",
+        })
+    })
+  }
+  
 );
 
 
 // Create an empty array where we'll export future Inngest functions
-export const functions = [autoCheckOut];
+export const functions = [
+    autoCheckOut, 
+    leaveApplicationReminder
+];
