@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react"
-import Loading from "../components/Loading.jsx"
-import CheckInButton from "../components/attendance/CheckInButton.jsx"
-import AttendanceStats from "../components/attendance/AttendanceStats.jsx"
-import AttendanceHistory from "../components/attendance/AttendanceHistory.jsx"
+import Loading from "../components/Loading"
+import CheckInButton from "../components/attendance/CheckInButton"
+import AttendanceStats from "../components/attendance/AttendanceStats"
+import AttendanceHistory from "../components/attendance/AttendanceHistory"
 import api from "../api/axios"
 import { toast } from "react-hot-toast"
 
