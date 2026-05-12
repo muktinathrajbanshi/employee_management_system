@@ -99,7 +99,7 @@ const attendanceReminderCron = inngest.createFunction(
   async ({ step }) => {
     // Step 1: Get today's date range (IST)
     const today = await step.run("get-today-date", () => {
-        const startUTC = new Date(new Date().toLocaleDateString("en-CA", {timeZone: "Asia/Kathmandu"}) + "T00:00:00 + 05:30");
+        const startUTC = new Date(new Date().toLocaleDateString("en-CA", {timeZone: "Asia/Kolkata"}) + "T00:00:00+05:30");
         const endUTC = new Date(startUTC.getTime() + 24 * 60 * 60 *1000);
 
         return { startUTC: startUTC.toISOString(), endUTC: endUTC.toISOString() }
