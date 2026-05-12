@@ -38,7 +38,7 @@ const LeaveHistory = ({leaves, isAdmin, onUpdate}) => {
                      {isAdmin && (
                        <td className="text-slate-900">
                          {leave.employee?.firstName}
-                         {leave.employee?.firstName}
+                         {leave.employee?.lastName}
                        </td>
                      )}
 
@@ -47,7 +47,7 @@ const LeaveHistory = ({leaves, isAdmin, onUpdate}) => {
                        </td>
    
                        <td className="text-xs text-slate-500">
-                         {format(new Date(leave.startDate), "MMM dd")} -  {format(new Date(leave.endDate), "MMM dd, yyyy")}
+                         {format(new Date(leave.startDate), "MMM dd")} - {format(new Date(leave.endDate), "MMM dd, yyyy")}
                        </td>
    
                         <td className="max-w-xs truncate text-slate-500" title={leave.reason}>
@@ -65,8 +65,8 @@ const LeaveHistory = ({leaves, isAdmin, onUpdate}) => {
                           {leave.status === "PENDING" && (
                             <div className="flex justify-center gap-2">
                               <button 
-                              onClick={() => handleStatusUpdate(leave._id || leave.id, "APPROVED")}
                               disabled={!!processing}
+                              onClick={() => handleStatusUpdate(leave._id || leave.id, "APPROVED")}
                               className="p-1.5 rounded-md bg-emerald-50 text-emerald-600
                               hover:bg-emerald-100 transition-colors">
                                 {processing === (leave._id || leave.id) ? <Loader2

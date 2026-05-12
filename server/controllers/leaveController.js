@@ -22,13 +22,13 @@ export const createLeave = async (req, res) => {
         }
 
         const today = new Date();
-        today.setHours(0, 0, 0, 0);
+        today.setHours(0,0,0,0);
         if(new Date(startDate) <= today || new Date(endDate) <= today) {
             return res.status(400).json({ error: "Leave dates must be in the future" });
         }
 
         if(new Date(endDate) < new Date(startDate)) {
-            return res.status(400).json({ error: "Leave dates must be in the future" });
+            return res.status(400).json({ error: "End date cannot be before start date" });
         }
 
         const leave = await LeaveApplication.create({
@@ -38,7 +38,6 @@ export const createLeave = async (req, res) => {
             endDate: new Date(endDate),
             reason,
             status: "PENDING",
-
         })
 
         await inngest.send({
@@ -64,8 +63,7 @@ export const getLeaves = async (req, res) => {
         if (isAdmin) {
             const status = req.query.status;
             const where = status ? {status} : {};
-            const leaves = (await LeaveApplication.find(where).
-            populate("employeeId")).sort({ createdAt: -1 });
+            const leaves = (await LeaveApplication.find(where).populate("employeeId")).sort({ createdAt: -1 });
             const data = leaves.map((l) => {
                 const obj = l.toObject();
                 return {
