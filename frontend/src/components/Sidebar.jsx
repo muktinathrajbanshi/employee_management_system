@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
-import { dummyProfileData } from "../assets/assets"
 import { CalendarIcon, ChevronRightIcon, DollarSignIcon, FileTextIcon, LayoutGridIcon, Loader2, LogOut, LogOutIcon, MenuIcon, SettingsIcon, UserIcon, XIcon } from "lucide-react"
 import { useAuth } from "../context/AuthContext"
 import api from "../api/axios"
@@ -158,7 +157,7 @@ const Sidebar = () => {
         <aside className={`lg:hidden fixed inset-y-0 left-0 w-72
         bg-linear-to-b from-slate-900 via-slate-900 to-slate-950 text-white
         z-50 flex flex-col transform transition-transform duration-300
-        {mobileOpen ? "translate-x-0" : "-translate-x-full"}`}>
+        ${mobileOpen ? "translate-x-0" : "-translate-x-full"}`}>
             {sidebarContent}
         </aside>
 
