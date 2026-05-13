@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from "react"
 import Loading from "../components/Loading"
-import CheckInButton from "../components/attendance/CheckInButton"
 import AttendanceStats from "../components/attendance/AttendanceStats"
 import AttendanceHistory from "../components/attendance/AttendanceHistory"
 import api from "../api/axios"
 import { toast } from "react-hot-toast"
+import CheckInButton from "../components/attendance/CheckInButton"
 
 
 const Attendance = () => {
